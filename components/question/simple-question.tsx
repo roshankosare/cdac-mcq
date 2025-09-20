@@ -21,7 +21,7 @@ const SimpleQuestion: React.FC<Props> = ({ question }) => {
 
   const handleSubmitLike = async () => {
     try {
-      const response = await fetch(`/api/question/${question.id}`, {
+      const response = await fetch(`/api/question/like/${question.id}`, {
         method: "PATCH",
       });
 

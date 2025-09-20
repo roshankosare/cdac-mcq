@@ -1,4 +1,4 @@
-import ResponsiveSection from "./ui/responsiveSection";
+import ResponsiveSection from "./ui/responsive-section";
 
 type ErrorProps = {
   message: string;
