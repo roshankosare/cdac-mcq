@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "npx prisma generate && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ps-prod": "dotenv -e .env -- cross-env DATABASE_URL=$DATABASE_URL_PROD npx prisma studio",
+    "ps-db-push": "dotenv -e .env -- cross-env DATABASE_URL=$DATABASE_URL_PROD npx prisma db push",
+    "ps-db-push-reset": "dotenv -e .env -- cross-env DATABASE_URL=$DATABASE_URL_PROD npx prisma db push --force-reset"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -31,6 +34,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.2.2",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "prisma": "^6.16.2",
