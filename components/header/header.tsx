@@ -17,7 +17,9 @@ const Header = () => {
 
   return (
     <div className="w-full h-[80px] bg-neutral-100 text-gray-800 flex justify-between items-center sm:px-10 px-4 sticky top-0 z-50 backdrop-blur-md shadow">
-      <h1 className="font-bold text-xl sm:text-4xl">CDAC MCQ TEST</h1>
+      <Link href={"/"}>
+        <h1 className="font-bold text-xl sm:text-4xl">CDAC MCQ TEST</h1>
+      </Link>
 
       {status === "authenticated" && (
         <div className="flex flex-row gap-x-4">

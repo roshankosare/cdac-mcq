@@ -9,6 +9,7 @@ type Props = {
 
 const SimpleQuestion: React.FC<Props> = ({ question }) => {
   const [selected, setSelected] = useState<string | null>(null);
+  const [inputOptionDisable, setInputOptionDisable] = useState<boolean>(false);
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [likes, setLikes] = useState<number>(question.likeCount);
   const [disableLike, setDisableLike] = useState<boolean>(false);
@@ -17,6 +18,7 @@ const SimpleQuestion: React.FC<Props> = ({ question }) => {
   const handleSelect = (opt: string) => {
     setSelected(opt);
     setError(null); // clear error if user selects something
+    setInputOptionDisable(true);
   };
 
   const handleSubmitLike = async () => {
@@ -72,6 +74,7 @@ const SimpleQuestion: React.FC<Props> = ({ question }) => {
                 value={opt}
                 checked={isSelected}
                 onChange={() => handleSelect(opt)}
+                disabled={inputOptionDisable}
               />
               {opt}
             </label>
